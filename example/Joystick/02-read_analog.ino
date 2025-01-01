@@ -10,6 +10,10 @@ void setup()
   MiniR4.begin();
   MiniR4.PWR.setBattCell(2);
   Serial.begin(9600);
+
+  MiniR4.OLED.setRotation(2);
+  MiniR4.OLED.setTextSize(1);
+  MiniR4.OLED.setTextColor(SSD1306_WHITE);
 }
 
 void loop()
@@ -29,4 +33,28 @@ void loop()
   Serial.print(rx);
   Serial.print(" RY:");
   Serial.println(ry);
+
+  MiniR4.OLED.setCursor(0,10);
+  MiniR4.OLED.print("LX:");
+  MiniR4.OLED.setCursor(20,10);
+  MiniR4.OLED.print(lx);
+
+  MiniR4.OLED.setCursor(0,25);
+  MiniR4.OLED.print("LY:");
+  MiniR4.OLED.setCursor(20,25);
+  MiniR4.OLED.print(ly);
+
+  MiniR4.OLED.setCursor(55,10);
+  MiniR4.OLED.print("RX:");
+  MiniR4.OLED.setCursor(75,10);
+  MiniR4.OLED.print(rx);
+
+  MiniR4.OLED.setCursor(55,25);
+  MiniR4.OLED.print("RY:");
+  MiniR4.OLED.setCursor(75,25);
+  MiniR4.OLED.print(ry);
+
+  MiniR4.OLED.display();
+  delay(1);
+  MiniR4.OLED.clearDisplay();
 }
